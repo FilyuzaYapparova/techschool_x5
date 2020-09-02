@@ -1,7 +1,5 @@
 package lesson_2;
 
-import static lesson_2.TaskUtil.*;
-
 public class Task_6 extends BaseTask {
 
     String dividesByTwo(int a) {

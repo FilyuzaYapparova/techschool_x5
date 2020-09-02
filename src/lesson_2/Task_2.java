@@ -1,7 +1,5 @@
 package lesson_2;
 
-import static lesson_2.TaskUtil.*;
-
 public class Task_2 extends BaseTask{
     public static void main(String[] args) {
         new Task_2().main();

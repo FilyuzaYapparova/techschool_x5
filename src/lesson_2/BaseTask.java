@@ -19,9 +19,8 @@ public class BaseTask {
         return scanner.nextInt();
     }
 
-    public void resetScanner() {
-        scanner.close();
-        scanner = new Scanner(System.in);
+    public static void printLine(String line) {
+        System.out.println(line);
     }
 
     public boolean isScannerHasNextInt(){

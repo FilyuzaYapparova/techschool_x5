@@ -1,7 +1,5 @@
 package lesson_2;
 
-import static lesson_2.TaskUtil.*;
-
 import java.util.ArrayList;
 
 public class Task_5 extends BaseTask{

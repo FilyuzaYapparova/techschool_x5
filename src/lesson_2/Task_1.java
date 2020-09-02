@@ -1,8 +1,5 @@
 package lesson_2;
 
-
-import static lesson_2.TaskUtil.printLine;
-
 public class Task_1 extends BaseTask {
 
     public int modInt(int number) {
