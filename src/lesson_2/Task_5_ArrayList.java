@@ -2,7 +2,7 @@ package lesson_2;
 
 import java.util.ArrayList;
 
-public class Task_5 extends BaseTask{
+public class Task_5_ArrayList extends BaseTask{
 
     public ArrayList<Integer> readArray() {
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -33,16 +33,12 @@ public class Task_5 extends BaseTask{
     }
 
     public static void main(String[] args) {
-        new Task_5().main();
+        new Task_5_ArrayList().main();
     }
 
     @Override
     public void run() {
         ArrayList<Integer> array = readArray();
-        if (array.size() != 3) {
-            printLine("Ошибка, в списке не 3 числа, повторите запуск программы.");
-            return;
-        }
         printLine("Минимальное число = " + findMin(array));
     }
 }

@@ -3,27 +3,27 @@ package lesson_2;
 public class Task_6 extends BaseTask {
 
     String dividesByTwo(int a) {
-        String line_2 = "";
+        String result = "";
         if (a % 2 != 0) {
-            line_2 = "нечетное";
+            result = "нечетное";
         } else if (a == 0) {
-            line_2 = "";
+            result = "";
         } else if (a % 2 == 0) {
-            line_2 = "четное";
+            result = "четное";
         }
-        return line_2;
+        return result;
     }
 
     String positiveNegativeChecking(int a) {
-        String line_1 = "";
+        String result = "";
         if (a > 0) {
-            line_1 = "положительное";
+            result = "положительное";
         } else if (a < 0) {
-            line_1 = "отрицательное";
+            result = "отрицательное";
         } else if (a == 0) {
-            line_1 = "нулевое";
+            result = "нулевое";
         }
-        return line_1;
+        return result;
     }
 
     public static void main(String[] args) {

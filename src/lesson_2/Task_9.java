@@ -3,14 +3,6 @@ package lesson_2;
 public class Task_9 extends BaseTask {
 
     int[] replace(int[] array) {
-//        int buffer;
-//        int j = array.length-1;
-//        for (int i = 0; i < array.length/2; i++) {
-//            buffer = array[i];
-//            array[i] = array[j];
-//            array[j] = buffer;
-//            j--;
-//        }
         int[] newArray = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             newArray[array.length-i-1] = array[i];
