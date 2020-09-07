@@ -3,37 +3,37 @@ package lesson_2;
 public class Task_8 extends BaseTask {
 
     void allChecking(int[] array) {
-        int max = array[0];
-        int sum1 = 0;
-        int sum2 = 0;
-        int sum3 = 0;
-        int count1 = 0;
-        int count2 = 0;
-        double result = 0;
+        int maxElement = array[0];
+        int positiveElementsSum = 0;
+        int negativeElementsSum = 0;
+        int negativeEvenElementsSum = 0;
+        int positiveElementsCount = 0;
+        int negativeElementsCount = 0;
+        double negativeElementsAverage = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i] > max) {
-                max = array[i];
+            if (array[i] > maxElement) {
+                maxElement = array[i];
             }
             if (array[i] > 0) {
-                sum1 += array[i];
-                count1++;
+                positiveElementsSum += array[i];
+                positiveElementsCount++;
             }
             if (array[i] < 0) {
-                sum2 += array[i];
-                count2++;
+                negativeElementsSum += array[i];
+                negativeElementsCount++;
                 if (array[i] % 2 == 0) {
-                    sum3 += array[i];
+                    negativeEvenElementsSum += array[i];
                 }
             }
         }
-        printLine("Максимальное значение = " + max);
-        printLine("Сумма положительных элементов = " + sum1);
-        printLine("Сумма отрицательных четных элементов = " + sum3);
-        printLine("Количество положительных элементов = " + count1);
-        if (count2 > 0) {
-            result = (double) sum2 / count2;
+        printLine("Максимальное значение = " + maxElement);
+        printLine("Сумма положительных элементов = " + positiveElementsSum);
+        printLine("Сумма отрицательных четных элементов = " + negativeEvenElementsSum);
+        printLine("Количество положительных элементов = " + positiveElementsCount);
+        if (negativeElementsCount > 0) {
+            negativeElementsAverage = (double) negativeElementsSum / negativeElementsCount;
         }
-        printLine("Среднее арифметическое отрицательных элементов = " + result);
+        printLine("Среднее арифметическое отрицательных элементов = " + negativeElementsAverage);
     }
 
     void max(int[] array) {
