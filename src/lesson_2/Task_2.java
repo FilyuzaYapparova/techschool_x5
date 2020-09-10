@@ -1,27 +1,26 @@
 package lesson_2;
 
-public class Task_2 extends BaseTask{
-    public static void main(String[] args) {
-        new Task_2().main();
-    }
+import java.util.Scanner;
 
-    @Override
-    public void run(){
-        printLine("Введите целое трехзначное число");
-        if (!isScannerHasNextInt()) {
-            printLine("Вы ввели не целое число");
+public class Task_2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите целое трехзначное число");
+        if (!scanner.hasNextInt()) {
+            System.out.println("Вы ввели не целое число");
         } else {
-            int number = readInt();
+            int number = scanner.nextInt();
             int sum = 0;
             if ((number >= 100) && (number < 1000)) {
                 while (number != 0) {
                     sum += number % 10;
                     number = number / 10;
                 }
-                printLine("Сумма цифр вашего числа = " + sum);
+                System.out.println("Сумма цифр вашего числа = " + sum);
             } else {
-                printLine("Вы ввели не трехзначное число");
+                System.out.println("Вы ввели не трехзначное число");
             }
         }
+        scanner.close();
     }
 }

@@ -1,25 +1,24 @@
 package lesson_2;
 
-public class Task_1 extends BaseTask {
+import java.util.Scanner;
 
-    public int modInt(int number) {
+public class Task_1 {
+
+    public static int modInt(int number) {
         int numeral = number % 10;
         return Math.abs(numeral);
     }
 
     public static void main(String[] args) {
-        new Task_1().main();
-    }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите целое число");
 
-    @Override
-    public void run() {
-        printLine("Введите целое число");
-
-        if (isScannerHasNextInt()) {
-            int number = readInt();
-            printLine("Последняя цифра вашего числа = " + modInt(number));
+        if (scanner.hasNextInt()) {
+            int number = scanner.nextInt();
+            System.out.println("Последняя цифра вашего числа = " + modInt(number));
         } else {
-            printLine("Вы ввели не целое число");
+            System.out.println("Вы ввели не целое число");
         }
+        scanner.close();
     }
 }

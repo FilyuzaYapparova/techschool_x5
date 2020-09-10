@@ -1,8 +1,10 @@
 package lesson_2;
 
-public class Task_6 extends BaseTask {
+import java.util.Scanner;
 
-    String dividesByTwo(int a) {
+public class Task_6 {
+
+    static String dividesByTwo(int a) {
         String result = "";
         if (a % 2 != 0) {
             result = "нечетное";
@@ -14,7 +16,7 @@ public class Task_6 extends BaseTask {
         return result;
     }
 
-    String positiveNegativeChecking(int a) {
+    static String positiveNegativeChecking(int a) {
         String result = "";
         if (a > 0) {
             result = "положительное";
@@ -27,17 +29,14 @@ public class Task_6 extends BaseTask {
     }
 
     public static void main(String[] args) {
-        new Task_6().main();
-    }
-
-    @Override
-    public void run() {
-        printLine("Введите целое число");
-        if (isScannerHasNextInt()) {
-            int a = readInt();
-            printLine(a + " - это " + positiveNegativeChecking(a) + " " + dividesByTwo(a) + " число");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите целое число");
+        if (scanner.hasNextInt()) {
+            int a = scanner.nextInt();
+            System.out.println(a + " - это " + positiveNegativeChecking(a) + " " + dividesByTwo(a) + " число");
         } else {
-            printLine("Вы ввели не целое число");
+            System.out.println("Вы ввели не целое число");
         }
+        scanner.close();
     }
 }

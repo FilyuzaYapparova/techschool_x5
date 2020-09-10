@@ -1,8 +1,8 @@
 package lesson_2;
 
-public class Task_8 extends BaseTask {
+public class Task_8 {
 
-    void allChecking(int[] array) {
+    static void allChecking(int[] array) {
         int maxElement = array[0];
         int positiveElementsSum = 0;
         int negativeElementsSum = 0;
@@ -26,57 +26,57 @@ public class Task_8 extends BaseTask {
                 }
             }
         }
-        printLine("Максимальное значение = " + maxElement);
-        printLine("Сумма положительных элементов = " + positiveElementsSum);
-        printLine("Сумма отрицательных четных элементов = " + negativeEvenElementsSum);
-        printLine("Количество положительных элементов = " + positiveElementsCount);
+        System.out.println("Максимальное значение = " + maxElement);
+        System.out.println("Сумма положительных элементов = " + positiveElementsSum);
+        System.out.println("Сумма отрицательных четных элементов = " + negativeEvenElementsSum);
+        System.out.println("Количество положительных элементов = " + positiveElementsCount);
         if (negativeElementsCount > 0) {
             negativeElementsAverage = (double) negativeElementsSum / negativeElementsCount;
         }
-        printLine("Среднее арифметическое отрицательных элементов = " + negativeElementsAverage);
+        System.out.println("Среднее арифметическое отрицательных элементов = " + negativeElementsAverage);
     }
 
-    void max(int[] array) {
+    static void max(int[] array) {
         int max = array[0];
         for (int i = 0; i < array.length; i++) {
             if (array[i] > max) {
                 max = array[i];
             }
         }
-        printLine("Максимальное значение = " + max);
+        System.out.println("Максимальное значение = " + max);
     }
 
-    void positiveSum(int[] array) {
+    static void positiveSum(int[] array) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] > 0) {
                 sum += array[i];
             }
         }
-        printLine("Сумма положительных элементов = " + sum);
+        System.out.println("Сумма положительных элементов = " + sum);
     }
 
-    void negativeSum(int[] array) {
+    static void negativeSum(int[] array) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             if ((array[i] < 0) && (array[i] % 2 == 0)) {
                 sum += array[i];
             }
         }
-        printLine("Сумма отрицательных четных элементов = " + sum);
+        System.out.println("Сумма отрицательных четных элементов = " + sum);
     }
 
-    void positiveCount(int[] array) {
+    static void positiveCount(int[] array) {
         int count = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] > 0) {
                 count++;
             }
         }
-        printLine("Количество положительных элементов = " + count);
+        System.out.println("Количество положительных элементов = " + count);
     }
 
-    void negativeMidSum(int[] array) {
+    static void negativeMidSum(int[] array) {
         int sum = 0;
         int count = 0;
         double result = 0;
@@ -89,15 +89,10 @@ public class Task_8 extends BaseTask {
         if (count > 0) {
             result = (double) sum / count;
         }
-        printLine("Среднее арифметическое отрицательных элементов = " + result);
+        System.out.println("Среднее арифметическое отрицательных элементов = " + result);
     }
 
     public static void main(String[] args) {
-        new Task_8().main();
-    }
-
-    @Override
-    public void run() {
         int[] array = {1, -10, 5, 6, 45, 23, -45, -34, 0, 32, 56, -1, 2, -2};
         max(array);
         positiveSum(array);

@@ -1,8 +1,8 @@
 package lesson_2;
 
-public class Task_10 extends BaseTask {
+public class Task_10 {
 
-    int[] replaceZero(int[] array) {
+    static int[] replaceZero(int[] array) {
         int[] newArray = new int[array.length];
         int j = 0;
         for (int i = 0; i < array.length; i++) {
@@ -14,9 +14,9 @@ public class Task_10 extends BaseTask {
         return newArray;
     }
 
-    void printArray(int[] array){
+    static void printArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            if (i < array.length-1) {
+            if (i < array.length - 1) {
                 System.out.print(array[i] + ", ");
             } else {
                 System.out.print(array[i] + ".");
@@ -25,11 +25,6 @@ public class Task_10 extends BaseTask {
     }
 
     public static void main(String[] args) {
-        new Task_10().main();
-    }
-
-    @Override
-    public void run() {
         int[] array = {15, 10, 0, -6, -5, 3, 0, -34, 0, 32, 56, 0, 24, -52};
         printArray(replaceZero(array));
     }

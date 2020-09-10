@@ -1,28 +1,31 @@
 package lesson_2;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Task_5_ArrayList extends BaseTask{
+public class Task_5_ArrayList {
 
-    public ArrayList<Integer> readArray() {
+    static Scanner scanner = new Scanner(System.in);
+
+    public static ArrayList<Integer> readArray() {
         ArrayList<Integer> arrayList = new ArrayList<>();
 
-        for (int i = 1; i <= 3; i++) {
-            if (i < 3) {
-                printLine("Введите " + i + "-ое число");
-            } else if (i == 3) {
-                printLine("Введите " + i + "-е число");
+        for (int i = 0; i < 3; i++) {
+            if (i == 0) {
+                System.out.println("Введите 1-ое число");
+            } else if (i == 1) {
+                System.out.println("Введите 2-ое число");
+            } else if (i == 2) {
+                System.out.println("Введите 3-е число");
             }
-            if (isScannerHasNextInt()) {
-                arrayList.add(readInt());
-            } else {
-                break; //Как отловить ошибку???? и чтобы программа норм отлавливала и не выходила с Exception
+            if (scanner.hasNextInt()) {
+                arrayList.add(scanner.nextInt());
             }
         }
         return arrayList;
     }
 
-    public int findMin(ArrayList<Integer> arrayList) {
+    public static int findMin(ArrayList<Integer> arrayList) {
         int min = arrayList.get(0);
         for (int i = 0; i < arrayList.size(); i++) {
             if (arrayList.get(i) < min) {
@@ -33,12 +36,8 @@ public class Task_5_ArrayList extends BaseTask{
     }
 
     public static void main(String[] args) {
-        new Task_5_ArrayList().main();
-    }
-
-    @Override
-    public void run() {
         ArrayList<Integer> array = readArray();
-        printLine("Минимальное число = " + findMin(array));
+        System.out.println("Минимальное число = " + findMin(array));
+        scanner.close();
     }
 }

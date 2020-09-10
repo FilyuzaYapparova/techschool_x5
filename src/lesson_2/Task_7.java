@@ -1,12 +1,14 @@
 package lesson_2;
 
-public class Task_7 extends BaseTask {
-    void printMessage(String city, double cost) {
-        printLine(city + ". Стоимость разговора: " + (cost * 10));
+import java.util.Scanner;
+
+public class Task_7 {
+    static void printMessage(String city, double cost) {
+        System.out.println(city + ". Стоимость разговора: " + (cost * 10));
     }
 
 
-    void city(int code) {
+    static void city(int code) {
         String city;
         double cost;
         switch (code) {
@@ -36,17 +38,14 @@ public class Task_7 extends BaseTask {
 
 
     public static void main(String[] args) {
-        new Task_7().main();
-    }
-
-    @Override
-    public void run() {
-        printLine("Введите код города");
-        if (isScannerHasNextInt()) {
-            int cityCode = readInt();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите код города");
+        if (scanner.hasNextInt()) {
+            int cityCode = scanner.nextInt();
             city(cityCode);
         } else {
-            printLine("Вы ввели не целое число");
+            System.out.println("Вы ввели не целое число");
         }
+        scanner.close();
     }
 }
