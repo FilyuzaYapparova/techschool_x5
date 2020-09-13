@@ -8,12 +8,17 @@ public class Cat extends Animal {
     }
 
     @Override
-    void makeNoise() {
+    public void makeNoise() {
         System.out.println("Мяу мяу");
     }
 
     @Override
-    void eat() {
+    public void eat() {
+        System.out.println("Кот ест " + food);
+    }
 
+    @Override
+    protected void sleep() {
+        System.out.println("Кот спит в " + location);
     }
 }

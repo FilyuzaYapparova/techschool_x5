@@ -8,14 +8,12 @@ public class Aspirant extends Student {
         this.scienceWork = scienceWork;
     }
 
-    public Aspirant() {
-    }
-
     @Override
-    int getScholarship() {
-        if (averageMark == 5)
+    public int getScholarship() {
+        if (averageMark == 5) {
             return 200;
-        else
+        } else {
             return 180;
+        }
     }
 }

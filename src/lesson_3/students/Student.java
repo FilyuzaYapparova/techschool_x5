@@ -13,13 +13,11 @@ public class Student {
         this.averageMark = averageMark;
     }
 
-    public Student() {
-    }
-
-    int getScholarship() {
-        if (averageMark == 5)
+    protected int getScholarship() {
+        if (averageMark == 5) {
             return 100;
-        else
+        } else {
             return 80;
+        }
     }
 }

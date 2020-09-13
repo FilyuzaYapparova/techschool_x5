@@ -2,7 +2,6 @@ package lesson_3.students;
 
 public class Main {
     public static void main(String[] args) {
-        Student people = new Aspirant();
         Student[] students = {
                 new Student("Анна","Яковлева","G-103",5),
                 new Student("Олег","Соловьев","H-100",4),
