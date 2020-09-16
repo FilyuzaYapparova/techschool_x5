@@ -1,7 +1,7 @@
 package lesson_3.animals;
 
 public class Dog extends Animal {
-    boolean pedigree;
+    private boolean pedigree;
 
     public Dog(String food, String location) {
         super(food, location);

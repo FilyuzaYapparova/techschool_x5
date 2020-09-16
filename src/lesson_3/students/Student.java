@@ -1,10 +1,10 @@
 package lesson_3.students;
 
 public class Student {
-    String firstName;
-    String lastName;
-    String group;
-    double averageMark;
+    private String firstName;
+    private String lastName;
+    private String group;
+    protected double averageMark;
 
     public Student(String firstName, String lastName, String group, double averageMark) {
         this.firstName = firstName;
@@ -13,7 +13,7 @@ public class Student {
         this.averageMark = averageMark;
     }
 
-    protected int getScholarship() {
+    public int getScholarship() {
         if (averageMark == 5) {
             return 100;
         } else {

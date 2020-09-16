@@ -1,7 +1,7 @@
 package lesson_3.animals;
 
 public class Horse extends Animal {
-    String color;
+    private String color;
 
     public Horse(String food, String location) {
         super(food, location);
