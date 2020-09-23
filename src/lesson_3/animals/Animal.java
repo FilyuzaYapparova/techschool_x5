@@ -9,15 +9,15 @@ public class Animal {
         this.location = location;
     }
 
-    protected void makeNoise() {
+    public void makeNoise() {
         System.out.println("");
     }
 
-    protected void eat() {
+    public void eat() {
         System.out.println("");
     }
 
-    protected void sleep() {
+    public void sleep() {
         System.out.println("");
     }
 }
