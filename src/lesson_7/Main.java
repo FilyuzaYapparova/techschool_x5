@@ -1,12 +1,11 @@
 package lesson_7;
 
 import java.io.*;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    private static File file = new File("Accounts.txt");
+    private static File file = new File("src" + File.separator + "lesson_7" + File.separator + "Accounts.txt");
 
     public static void help() {
         System.out.println("--------------------------------------------------------------------------------");
@@ -20,10 +19,15 @@ public class Main {
         System.out.println("--------------------------------------------------------------------------------");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
 
         boolean fileExists = file.exists();
-
+        if (!fileExists){
+            System.out.println("no file, creating");
+            boolean newFile = file.createNewFile();
+            System.out.println("created " + newFile);
+        }
         try (
                 Scanner scanner = new Scanner(System.in);
                 BufferedReader reader = new BufferedReader(new FileReader(file));
