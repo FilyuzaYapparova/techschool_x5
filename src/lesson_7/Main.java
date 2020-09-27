@@ -1,5 +1,8 @@
 package lesson_7;
 
+import lesson_7.exceptions.NotEnoughMoneyException;
+import lesson_7.exceptions.UnknownAccountException;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -19,6 +22,33 @@ public class Main {
         System.out.println("--------------------------------------------------------------------------------");
     }
 
+    public static boolean run(Scanner scanner, AccountService accounts) throws UnknownAccountException, NotEnoughMoneyException {
+        System.out.println("Какую операцию вы хотите выполнить?");
+        String[] command = scanner.nextLine().split(" ");
+        String operation = command[0];
+        switch (operation) {
+            case "help":
+                help();
+                break;
+            case "balance":
+                accounts.balance(Integer.parseInt(command[1]));
+                break;
+            case "withdraw":
+                accounts.withdraw(Integer.parseInt(command[1]), Integer.parseInt(command[2]));
+                break;
+            case "deposit":
+                accounts.deposit(Integer.parseInt(command[1]), Integer.parseInt(command[2]));
+                break;
+            case "transfer":
+                accounts.transfer(Integer.parseInt(command[1]), Integer.parseInt(command[2]), Integer.parseInt(command[3]));
+                break;
+            case "exit":
+                return false;
+            default:
+                System.out.println("Ошибка ввода операции. Повторите попытку");
+        } return true;
+    }
+
     public static void main(String[] args) throws IOException {
 
 
@@ -34,40 +64,16 @@ public class Main {
         ) {
             FileAccountManager accounts = new FileAccountManager(reader, fileExists);
 
-
             help();
 
-            while (true) {
-                System.out.println("Какую операцию вы хотите выполнить?");
-                String[] command = scanner.nextLine().split(" ");
-                String operation = command[0];
-                switch (operation) {
-                    case "help":
-                        help();
-                        break;
-                    case "balance":
-                        accounts.balance(Integer.parseInt(command[1]));
-                        break;
-                    case "withdraw":
-                        accounts.withdraw(Integer.parseInt(command[1]), Integer.parseInt(command[2]));
-                        break;
-                    case "deposit":
-                        accounts.deposit(Integer.parseInt(command[1]), Integer.parseInt(command[2]));
-                        break;
-                    case "transfer":
-                        accounts.transfer(Integer.parseInt(command[1]), Integer.parseInt(command[2]), Integer.parseInt(command[3]));
-                        break;
-                    case "exit":
-                        try (
-                                PrintWriter writer = new PrintWriter(new FileWriter(file));
-                        ) {
-                            accounts.writeFile(writer);
-                        }
-                        return;
-                    default:
-                        System.out.println("Ошибка ввода операции. Повторите попытку");
-                }
+            while (run(scanner, accounts)) {
             }
+            try (
+                    PrintWriter writer = new PrintWriter(new FileWriter(file));
+            ) {
+                accounts.writeFile(writer);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
