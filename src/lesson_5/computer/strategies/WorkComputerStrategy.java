@@ -1,18 +1,20 @@
 package lesson_5.computer.strategies;
 
-import lesson_5.computer.factories.monitor.AserMonitorFactory;
-import lesson_5.computer.factories.processor.IntelProcessorFactory;
-import lesson_5.computer.factories.ram.StaticRamFactory;
-import lesson_5.computer.factories.storage.HddStorageFactory;
-import lesson_5.computer.factories.videocard.AmdVideoCardFactory;
+import lesson_5.computer.Computer;
+import lesson_5.computer.factories.monitor.MonitorFactory;
+import lesson_5.computer.factories.processor.ProcessorFactory;
+import lesson_5.computer.factories.ram.RamFactory;
+import lesson_5.computer.factories.storage.StorageFactory;
+import lesson_5.computer.factories.videocard.VideoCardFactory;
 
 public class WorkComputerStrategy extends ComputerStrategy {
 
-    public WorkComputerStrategy(IntelProcessorFactory processorFactory,
-                                AserMonitorFactory monitorFactory,
-                                AmdVideoCardFactory videoCardFactory,
-                                StaticRamFactory ramFactory,
-                                HddStorageFactory storageFactory) {
-        super(processorFactory, monitorFactory, videoCardFactory, ramFactory, storageFactory);
+    @Override
+    public void buildComputer(Computer computer) {
+        computer.setProcessor(ProcessorFactory.getProcessor("Intel"));
+        computer.setMonitor(MonitorFactory.getMonitor("Aser"));
+        computer.setRam(RamFactory.getRam("Static"));
+        computer.setStorage(StorageFactory.getStorage("HDD"));
+        computer.setVideoCard(VideoCardFactory.getVideoCard("AMD"));
     }
 }
