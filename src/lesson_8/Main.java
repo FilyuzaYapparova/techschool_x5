@@ -4,8 +4,6 @@ import lesson_7.AccountService;
 import lesson_7.exceptions.NotEnoughMoneyException;
 import lesson_7.exceptions.UnknownAccountException;
 
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

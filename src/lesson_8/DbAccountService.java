@@ -5,7 +5,10 @@ import lesson_7.AccountService;
 import lesson_7.exceptions.NotEnoughMoneyException;
 import lesson_7.exceptions.UnknownAccountException;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class DbAccountService implements AccountService {
 
