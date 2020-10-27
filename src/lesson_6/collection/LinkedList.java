@@ -25,7 +25,7 @@ public class LinkedList<E> implements List<E> {
     }
 
     private Element<E> first;
-
+    private Element<E> last;
 
     @Override
     public int size() {
@@ -36,14 +36,12 @@ public class LinkedList<E> implements List<E> {
     public void add(E item) {
         if (first == null) {
             first = new Element<>(item);
+            last = first;
         } else {
             Element<E> newElement = new Element<>(item);
-            Element<E> saveElement = first;
-            while (saveElement.next != null) {
-                saveElement = saveElement.next;
-            }
-            saveElement.next = newElement;
-            newElement.previous = saveElement;
+            last.next = newElement;
+            newElement.previous = last;
+            last = newElement;
         }
         listSize++;
     }
@@ -68,25 +66,16 @@ public class LinkedList<E> implements List<E> {
     @Override
     public void remove(E item) {
         Element<E> element = first;
+        int index = 0;
         while (!Objects.equals(element.value,item)) {
             element = element.next;
+            index++;
             if (element == null) {
                 System.out.println("Ошибка поиска элемента " + item);
                 return;
             }
         }
-        if (listSize == 1) {
-            clear();
-        } else if (element.next == null) {
-            element.previous.next = null;
-        } else if (element.previous == null) {
-            element.next.previous = null;
-            first = element.next;
-        } else {
-            element.previous.next = element.next;
-            element.next.previous = element.previous;
-        }
-        listSize--;
+        remove(index);
     }
 
     @Override
